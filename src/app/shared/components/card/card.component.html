@@ -1,5 +1,5 @@
 
-<div class="container mt-3">
+<div class="container">
 
     <div class="card mb-2">
 
@@ -18,10 +18,13 @@
         </div>
 
 
-        <!-- div class="card-body"  [hidden]="!showBody" -->
-        <div class="card-body" *ngIf="showBody">
+        <!--
+            <div class="card-body" *ngIf="showBody">
+        -->
+        <div class="card-body"  [hidden]="!showBody">
 
-            <!-- Contenuto dell'accordion -->
+            <!-- Contenuto dell'accordion (Content Projection )-->
+            <ng-content></ng-content>
         </div>
 
     </div>

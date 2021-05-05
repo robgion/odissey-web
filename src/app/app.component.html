@@ -1,21 +1,35 @@
-
-
-
 <div class="container">
     <!-- Interpolazione -->
     <span>{{ title }} app is running!</span>
 
-    <div class="mt-5">
-
+    <div class="mt-2" >
         <tcs-card
-            [title]="cardTitle1"
+                *ngFor="let card of cards"
+                [itemIdx]="card.itemIdx"
+                [title]="card.title"
+                [showBody]="card.showBody"
+                (toggleEvent)="manageToggle($event)"
         ></tcs-card>
 
     </div>
 
-    <div class="mt-5">
+    <div class="mt-5" >
+        <tcs-card [title]="'Single title'" >
 
-        <tcs-card></tcs-card>
+            <div>
+                <p>content</p>
+            </div>
 
+        </tcs-card>
     </div>
+    <div class="mt-5" >
+        <tcs-card [title]="'Single title2'" >
+
+            <div>
+                <p>New content</p>
+            </div>
+
+        </tcs-card>
+    </div>
+
 </div>
