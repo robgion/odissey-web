@@ -15,4 +15,8 @@ import { CardComponent } from './components/card/card.component';
     CardComponent
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+  constructor() {
+    console.log('SharedModule loading...');
+  }
+}

@@ -21,7 +21,7 @@
     "username": "admin",
     "password": "admin",
     "token": "SKLDNAFLADKJNFG4I65J6Y45673476437JKNLKJNLKJNLJKN",
-    "roles": ["ADMIN", "USERS", "DEVELOPER"]
+    "role": "ADMIN"
   },
 
   "products": [
