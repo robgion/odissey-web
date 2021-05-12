@@ -1,0 +1,106 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+
+  "login": {
+    "username": "admin",
+    "password": "admin",
+    "token": "SKLDNAFLADKJNFG4I65J6Y45673476437JKNLKJNLKJNLJKN",
+    "roles": ["ADMIN", "USERS", "DEVELOPER"]
+  },
+
+  "products": [
+    {
+      "id": 1,
+      "code": "KNSDLKJF",
+      "description": "sdfdffff"
+    },
+    {
+      "id": 2,
+      "code": "HHHHHHHHHHH",
+      "description": "sdfdffff"
+    },
+    {
+      "id": 3,
+      "code": "JSFJNFNFNFNFNFNF",
+      "description": "sdfdffff"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Roberto",
+      "lastName": "Giontella",
+      "email": "r.giontella@2clever.it",
+      "active": 1,
+      "username": "admin1",
+      "password": "password1",
+      "token": "EXKRK5zkm3qbE3wouczgmusazI8akqlqEDv6+g1EM90pOI/YxRm3tr16SXqWRyx/",
+      "role": {
+        "code": "ADMIN"
+      },
+      "profile": {
+        "color": "red",
+        "location": {
+          "lat": 23,
+          "lon": 45
+        }
+      }
+    },
+    {
+      "id": 2,
+      "name": "Mario",
+      "lastName": "Rossi",
+      "email": "m.rossi@2clever.it",
+      "active": 1,
+      "username": "admin2",
+      "password": "password2",
+      "token": "EXKRK5zkm3qbE3wouczgmusazI8akqlqEDv6+g1EM90pOI/YxRm3tr16SXqWRyx/",
+      "role": {
+        "code": "USER"
+      },
+      "profile": {
+        "color": "yellow",
+        "location": {
+          "lat": 23,
+          "lon": 45
+        }
+      }
+    },
+    {
+      "id": 3,
+      "name": "Sofia",
+      "lastName": "Ricci",
+      "email": "r.giontella@2clever.it",
+      "active": 1,
+      "username": "admin11",
+      "password": "password3",
+      "token": "EXKRK5zkm3qbE3wouczgmusazI8akqlqEDv6+g1EM90pOI/YxRm3tr16SXqWRyx/",
+      "role": {
+        "code": "LEAD"
+      },
+      "profile": {
+        "color": "blue",
+        "location": {
+          "lat": 23,
+          "lon": 45
+        }
+      }
+    }
+  ]
+}
