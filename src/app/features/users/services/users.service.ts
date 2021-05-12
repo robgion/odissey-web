@@ -1,19 +1,25 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {BaseService} from '../../../core/services/base.service';
+import {Observable} from 'rxjs';
 
 @Injectable()
-export class UsersService {
+export class UsersService extends BaseService {
 
     constructor(
-        private htt: HttpClient
+        private http: HttpClient
     ) {
+        super();
     }
 
     /**
      * Metodo di recupero degli utenti
      */
-    public loadUsers(): any[] {
-        const users: any[] = [];
-        return users;
+    public loadUsers(): Observable<any>{
+        return this.http.get( this.buildUrl('users') );
+    }
+
+    functionalParam = (parma1: number) => {
+        console.log(parma1);
     }
 }

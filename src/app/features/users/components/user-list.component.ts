@@ -28,17 +28,29 @@ import {UsersService} from '../services/users.service';
 export class UserListComponent implements OnInit {
 
     users: any[];
-    userActions: UsersService;
+    // userActions: UsersService;
 
     /**
      * Iniezione delle dipendenze ( services )
      */
-    constructor(userServiceActions: UsersService) {
-        this.userActions = userServiceActions;
+    constructor(
+        private userActions: UsersService
+    ) {
+        // this.userActions = userServiceActions;
         this.users = [];
     }
 
     ngOnInit(): void {
-        this.users = this.userActions.loadUsers();
+        this.userActions.loadUsers().subscribe(
+            (response) => {
+                console.log(response);
+                if (response) {
+                    this.users = response;
+                }
+            },
+            error => {
+                console.log(error);
+            }
+        );
     }
 }

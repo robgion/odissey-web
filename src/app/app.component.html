@@ -1,8 +1,11 @@
 <div class="container">
     <!-- Interpolazione -->
-    <span>{{ title }} app is running!</span>
 
-    <div class="mt-2" >
+    <div>
+        <tcs-navbar></tcs-navbar>
+    </div>
+
+    <!-- <div class="mt-2" >
         <tcs-card
                 *ngFor="let card of cards"
                 [itemIdx]="card.itemIdx"
@@ -11,15 +14,10 @@
                 (toggleEvent)="manageToggle($event)"
         ></tcs-card>
 
-    </div>
+    </div> -->
 
-    <div class="mt-5" >
-        <tcs-card [title]="'Available users'" >
+   <router-outlet></router-outlet>
 
-            <tcs-user-list></tcs-user-list>
-
-        </tcs-card>
-    </div>
     <!--<div class="mt-5" >
         <tcs-card [title]="'Single title2'" >
 

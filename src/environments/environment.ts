@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  remoteApiBaseUrl: 'http://localhost:8080/myapp-be'
+  remoteApiBaseUrl: 'http://localhost:3000'
 };
 
 /*
