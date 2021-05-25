@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {UserListComponent} from './components/user-list.component';
-import {UsersService} from './services/users.service';
 import {UsersRoutingModule} from './users-routing.module';
 
 
@@ -16,7 +15,7 @@ import {UsersRoutingModule} from './users-routing.module';
         CommonModule,
         UsersRoutingModule
     ],
-    providers: [UsersService]
+    providers: []
 })
 export class UsersModule {
     constructor() {

@@ -14,16 +14,17 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "email": "info@mariorossi.com",
+    "name": "Mario BIANCHI",
+    "role": "pro",
+    "address": "Via Mazzini 11, Trieste - P.I. 012345678"
   },
-
   "login": {
     "username": "admin",
     "password": "admin",
     "token": "SKLDNAFLADKJNFG4I65J6Y45673476437JKNLKJNLKJNLJKN",
     "role": "ADMIN"
   },
-
   "products": [
     {
       "id": 1,
@@ -101,6 +102,92 @@
           "lon": 45
         }
       }
+    }
+  ],
+  "invoices": [
+    {
+      "subject": "Sviluppo E-Commerce",
+      "date": "2019-08-13",
+      "total": 19000,
+      "items": [
+        {
+          "text": "Development 23 giorni",
+          "price": "19000"
+        }
+      ],
+      "invoiceNumber": 6,
+      "id": 13,
+      "clientID": 2
+    },
+    {
+      "clientID": 8,
+      "subject": "Angular Training ",
+      "date": "2019-08-10",
+      "total": 445,
+      "items": [
+        {
+          "text": "Lessons",
+          "price": "100"
+        },
+        {
+          "text": "AAA",
+          "price": "111"
+        },
+        {
+          "text": "asd",
+          "price": "234"
+        }
+      ],
+      "invoiceNumber": 9,
+      "id": 16
+    },
+    {
+      "clientID": 8,
+      "subject": "Training Angular",
+      "date": "2019-08-15",
+      "total": 51,
+      "items": [
+        {
+          "text": "Lezioni",
+          "price": "1"
+        },
+        {
+          "text": "Pasti",
+          "price": "50"
+        }
+      ],
+      "invoiceNumber": 11,
+      "id": 18
+    }
+  ],
+  "clients": [
+    {
+      "name": "ABC SUPER",
+      "id": 2
+    },
+    {
+      "name": "ROBGION",
+      "id": 8
+    },
+    {
+      "name": "ACME COMPANY",
+      "id": 9
+    },
+    {
+      "name": "ABC",
+      "id": 10
+    },
+    {
+      "name": "ANOTHER_",
+      "id": 11
+    },
+    {
+      "name": "ACME",
+      "id": 12
+    },
+    {
+      "name": "test_ ",
+      "id": 13
     }
   ]
 }

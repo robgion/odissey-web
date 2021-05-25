@@ -8,11 +8,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import {NavbarComponent} from './features/views/navbar/navbar.component';
+import { InvoicesEditorComponent } from './features/invoices/components/invoices-editor.component';
+import {InvoicesModule} from './features/invoices/invoices.module';
+import {ProductsModule} from './features/products/products.module';
 
 @NgModule({
     declarations: [
         AppComponent,
-        NavbarComponent
+        NavbarComponent,
     ],
     imports: [
         BrowserModule,
@@ -20,7 +23,9 @@ import {NavbarComponent} from './features/views/navbar/navbar.component';
         CoreModule,
         SharedModule,
         AppRoutingModule,
-        RouterModule
+        RouterModule,
+        InvoicesModule,
+        ProductsModule
     ],
     providers: [], // Dichiarazione dei services ( concetto di gerarchia degli injectors ) ovvero classi ts in cui releghiamo la logica di business
     bootstrap: [AppComponent]
