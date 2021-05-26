@@ -22,7 +22,3 @@ export class UsersModule {
         console.log('UsersModule loading...');
     }
 }
-
-export class Pippo {
-    name: string;
-}

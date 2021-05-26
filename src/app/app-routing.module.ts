@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'users', loadChildren: () => import('./features/users/users.module').then( m => m.UsersModule) },
   { path: 'products', loadChildren: () => import('./features/products/products.module').then( m => m.ProductsModule) },
   { path: 'invoices', loadChildren: () => import('./features/invoices/invoices.module').then( m => m.InvoicesModule) },
+  { path: 'dashboard', loadChildren: () => import('./features/dashboard/dashboard.module').then( m => m.DashboardModule) },
 ];
 
 @NgModule({
