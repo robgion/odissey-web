@@ -8,17 +8,12 @@ export interface AppDataModel {
 export class DataService {
 
     // singola sorgente di verità
-    private store: AppDataModel;
-    initialValue = (): AppDataModel  => {
-        this.store = {
+    private store: AppDataModel = {
             dataBool: false,
             token: null
         };
-        return this.store;
-    }
 
-    // NGRX reduce-redux
-    private dataSubject: BehaviorSubject<AppDataModel> = new BehaviorSubject<AppDataModel>(this.initialValue());
+    private dataSubject: BehaviorSubject<AppDataModel> = new BehaviorSubject<AppDataModel>(this.store);
     public data$: Observable<AppDataModel> = this.dataSubject.asObservable();
 
     set data(data: boolean) {
