@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 import {User} from '../../model/user';
 import {ProfileActionsService} from './profile-actions.service';
 
-export interface ClientsState {
+export class ClientsState {
     entity: User;
 }
 
@@ -11,9 +11,7 @@ export interface ClientsState {
 @Injectable()
 export class ProfileStoreService {
 
-    private initialState: ClientsState = {
-        entity: {}
-    };
+    private initialState: ClientsState = new ClientsState();
 
     /** Stato della lista di clienti */
     private profileSubect: BehaviorSubject<User> = new BehaviorSubject<User>(this.initialState.entity);

@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
+import {AuthStoreService} from '../../../core/services/security/auth-store.service';
 
 @Component({
   selector: 'tcs-navbar',
@@ -9,8 +10,14 @@ import {Router} from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   userRole: string;
-
-  constructor(private router: Router, ) {
+  isUserLogged: boolean;
+  constructor(
+      private router: Router,
+      private authStore: AuthStoreService) {
+    this.isUserLogged = false;
+    /*this.authStore.authStore$.subscribe(
+        store => this.isUserLogged = !!store && !!store.token
+    );*/
   }
 
   ngOnInit(): void {
@@ -21,7 +28,8 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(): void{
-    this.router.navigateByUrl('login/signin');
+    this.authStore.logout();
+    this.router.navigateByUrl('login');
   }
 
 

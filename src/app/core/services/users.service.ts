@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BaseService} from './base.service';
 import {Observable} from 'rxjs';
+import {User} from '../../model/user';
 
 @Injectable()
 export class UsersService extends BaseService {
@@ -21,5 +22,9 @@ export class UsersService extends BaseService {
 
     functionalParam = (parma1: number) => {
         console.log(parma1);
+    }
+
+    public getUser(id: number): Observable<User> {
+        return this.http.get( this.buildUrl(`users/${id}`));
     }
 }

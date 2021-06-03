@@ -2,18 +2,22 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {UserListComponent} from './components/user-list.component';
 import {UsersRoutingModule} from './users-routing.module';
+import {UserDetailComponent} from './components/user-detail.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
     declarations: [
-        UserListComponent
+        UserListComponent,
+        UserDetailComponent
     ],
     exports: [
         UserListComponent
     ],
     imports: [
         CommonModule,
-        UsersRoutingModule
+        UsersRoutingModule,
+        ReactiveFormsModule
     ],
     providers: []
 })

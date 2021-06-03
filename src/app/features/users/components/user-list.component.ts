@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UsersService} from '../../../core/services/users.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'tcs-user-list',
@@ -21,7 +22,7 @@ import {UsersService} from '../../../core/services/users.service';
                 <div class="col-3">{{ user.lastName }}</div>
                 <div class="col-2">{{ user.username }}</div>
                 <div class="col-2">{{ user.role.code }}</div>
-                <div class="col-1"></div>
+                <div class="col-1"> <a href="javascript:void(0)" (click)="gotoDetail(user.id)">detail</a></div>
                 <div class="col-1"></div>
             </div>
         </div>
@@ -36,7 +37,8 @@ export class UserListComponent implements OnInit {
      * Iniezione delle dipendenze ( services )
      */
     constructor(
-        private userActions: UsersService
+        private userActions: UsersService,
+        private router: Router
     ) {
         // this.userActions = userServiceActions;
         this.users = [];
@@ -54,5 +56,9 @@ export class UserListComponent implements OnInit {
                 console.log(error);
             }
         );
+    }
+
+    gotoDetail(id: number): void {
+        this.router.navigateByUrl(`users/${id}`);
     }
 }

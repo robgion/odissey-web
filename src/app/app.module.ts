@@ -4,10 +4,11 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {CoreModule} from './core/core.module';
 import {SharedModule} from './shared/shared.module';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import {NavbarComponent} from './features/views/navbar/navbar.component';
+import {AuthInterceptorService} from './core/services/security/auth-interceptor.service';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,14 @@ import {NavbarComponent} from './features/views/navbar/navbar.component';
         AppRoutingModule,
         RouterModule
     ],
-    providers: [], // Dichiarazione dei services ( concetto di gerarchia degli injectors ) ovvero classi ts in cui releghiamo la logica di business
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptorService,
+            multi: true
+        }
+
+    ], // Dichiarazione dei services ( concetto di gerarchia degli injectors ) ovvero classi ts in cui releghiamo la logica di business
     bootstrap: [AppComponent]
 })
 export class AppModule {

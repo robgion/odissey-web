@@ -5,3 +5,11 @@ export interface User {
   role?: string;
   email?: string;
 }
+
+export interface SessionData {
+  username: string;
+  password: string;
+  token: string;
+  role: string;
+}
+

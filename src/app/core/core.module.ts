@@ -8,6 +8,9 @@ import {InvoicesStoreService} from './services/invoices-store.service';
 import {ClientsStoreService} from './services/clients-store.service';
 import {ProfileStoreService} from './services/profile-store.service';
 import {ProfileActionsService} from './services/profile-actions.service';
+import {SecurityService} from './services/security/security.service';
+import {AuthStoreService} from './services/security/auth-store.service';
+import {AuthGuardService} from './services/security/auth-guard.service';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import {ProfileActionsService} from './services/profile-actions.service';
         ClientsActionsService,
         ClientsStoreService,
         ProfileActionsService,
-        ProfileStoreService
+        ProfileStoreService,
+        SecurityService,
+        AuthStoreService,
+        AuthGuardService
     ]
 })
 export class CoreModule {
