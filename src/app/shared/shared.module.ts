@@ -5,6 +5,7 @@ import { SwitchPanelsContainerComponent } from './components/switch-panels-conta
 import { RightPanelComponent } from './components/switch-panels-container/right-panel.component';
 import { LeftPanelComponent } from './components/switch-panels-container/left-panel.component';
 import { SwitchPanelHeaderComponent } from './components/switch-panels-container/switch-panel-header.component';
+import {ProfilerDirective} from './directives/profiler.directive';
 
 @NgModule({
   declarations: [
@@ -12,13 +13,14 @@ import { SwitchPanelHeaderComponent } from './components/switch-panels-container
       SwitchPanelsContainerComponent,
       RightPanelComponent,
       LeftPanelComponent,
-      SwitchPanelHeaderComponent
+      SwitchPanelHeaderComponent,
+      ProfilerDirective
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    CardComponent, SwitchPanelsContainerComponent
+    CardComponent, SwitchPanelsContainerComponent, ProfilerDirective
   ]
 })
 export class SharedModule {

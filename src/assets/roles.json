@@ -1,0 +1,12 @@
+{
+  "roles": [
+    {
+      "role": "ADMIN",
+      "functions": ["users_menu", "invoices_menu", "users_delete"]
+    },
+    {
+      "role": "USER",
+      "functions": ["invoices_menu"]
+    }
+  ]
+}

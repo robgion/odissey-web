@@ -11,6 +11,7 @@ import {ProfileActionsService} from './services/profile-actions.service';
 import {SecurityService} from './services/security/security.service';
 import {AuthStoreService} from './services/security/auth-store.service';
 import {AuthGuardService} from './services/security/auth-guard.service';
+import {UserRolesSecurityService} from "./services/security/user-roles-security.service";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {AuthGuardService} from './services/security/auth-guard.service';
         ProfileStoreService,
         SecurityService,
         AuthStoreService,
-        AuthGuardService
+        AuthGuardService,
+        UserRolesSecurityService
     ]
 })
 export class CoreModule {

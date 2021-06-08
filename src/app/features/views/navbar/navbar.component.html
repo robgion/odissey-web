@@ -10,13 +10,13 @@
         <a class="nav-link" href="javascript:void(0)" routerLink="dashboard" >Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="javascript:void(0)" routerLink="users" >Users <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="javascript:void(0)" routerLink="users" *tcsProfiler="'users_menu'" >Users <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="javascript:void(0)" routerLink="products" >Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="javascript:void(0)" routerLink="invoices" >Invoices</a>
+        <a class="nav-link" href="javascript:void(0)" *tcsProfiler="'invoices_menu'" routerLink="invoices" >Invoices</a>
       </li>
     </ul>
   </div>
