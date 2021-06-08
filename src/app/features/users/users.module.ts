@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {UserListComponent} from './components/user-list.component';
 import {UsersRoutingModule} from './users-routing.module';
 import {UserDetailComponent} from './components/user-detail.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -17,6 +17,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     imports: [
         CommonModule,
         UsersRoutingModule,
+        FormsModule,
         ReactiveFormsModule
     ],
     providers: []

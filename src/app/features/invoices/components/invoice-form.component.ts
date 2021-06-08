@@ -68,8 +68,7 @@ import {Client} from '../../../model/client';
         > <i class="fa fa-users"></i> Edit Clients</button>
 
       </div>
-
-
+      
       <!--Fields-->
       <div class="form-group">
         <input class="form-control" type="text" formControlName="subject" placeholder="Subject * (min 3 chars)">
@@ -82,7 +81,6 @@ import {Client} from '../../../model/client';
       <h4>Products</h4>
       <div formArrayName="items"
            *ngFor="let item of items.controls; let i = index; let last = last">
-
         <div
           [formGroupName]="i" class="form-group form-inline"
           style="border-left: 5px solid grey; padding-left: 10px"

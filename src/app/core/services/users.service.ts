@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BaseService} from './base.service';
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {User} from '../../model/user';
 
 @Injectable()
@@ -20,11 +20,11 @@ export class UsersService extends BaseService {
         return this.http.get( this.buildUrl('users') );
     }
 
-    functionalParam = (parma1: number) => {
-        console.log(parma1);
-    }
-
     public getUser(id: number): Observable<User> {
         return this.http.get( this.buildUrl(`users/${id}`));
+    }
+
+    public findUserByEmail(email: string): Observable<any> {
+        return this.http.get( this.buildUrl(`users?email=${email}`));
     }
 }
