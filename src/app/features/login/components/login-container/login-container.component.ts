@@ -4,6 +4,7 @@ import {SecurityService} from '../../../../core/services/security/security.servi
 import {AuthStoreService} from '../../../../core/services/security/auth-store.service';
 import {Router} from '@angular/router';
 import {Subject, Subscription} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'tcs-login-container',
@@ -31,7 +32,6 @@ export class LoginContainerComponent implements OnInit, OnDestroy {
       private authStore: AuthStoreService,
       private router: Router
   ) {
-  /*
     this.unsubscribe = this.authStore.authStore$
         .pipe(
             takeUntil(this.subject)
@@ -42,7 +42,7 @@ export class LoginContainerComponent implements OnInit, OnDestroy {
             this.router.navigateByUrl('users');
           }
         }
-    );*/
+    );
   }
 
   ngOnInit(): void {

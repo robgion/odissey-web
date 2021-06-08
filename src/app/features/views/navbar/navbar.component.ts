@@ -1,13 +1,17 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthStoreService} from '../../../core/services/security/auth-store.service';
+import {takeUntil} from 'rxjs/operators';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'tcs-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
+
+  subject: Subject<any> = new Subject<any>();
 
   userRole: string;
   isUserLogged: boolean;
@@ -15,9 +19,11 @@ export class NavbarComponent implements OnInit {
       private router: Router,
       private authStore: AuthStoreService) {
     this.isUserLogged = false;
-    /*this.authStore.authStore$.subscribe(
+    this.authStore.authStore$. pipe(
+        takeUntil(this.subject)
+    ). subscribe(
         store => this.isUserLogged = !!store && !!store.token
-    );*/
+    );
   }
 
   ngOnInit(): void {
@@ -30,6 +36,11 @@ export class NavbarComponent implements OnInit {
   logout(): void{
     this.authStore.logout();
     this.router.navigateByUrl('login');
+  }
+
+  ngOnDestroy(): void {
+    this.subject.next();
+    this.subject.complete();
   }
 
 
