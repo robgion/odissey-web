@@ -6,22 +6,28 @@ import {Router} from '@angular/router';
     selector: 'tcs-user-list',
     template: `
         <div class="container mt-5">
+            <div class="row">
+            <div class="col-12">
+                <input type="text" placeholder="Search..." [(ngModel)]="searchText">
+            </div>
+            </div>
             <div class="row mt-2">
                 <div class="col-1">ID</div>
                 <div class="col-2">NAME</div>
                 <div class="col-3">SURNAME</div>
                 <div class="col-2">USERNAME</div>
                 <div class="col-2">ROLE</div>
-                <div class="col-1"></div>
+                <div class="col-1">ACRIVE</div>
                 <div class="col-1"></div>
             </div>
             <hr>
-            <div class="row" *ngFor="let user of users">
+            <div class="row" *ngFor="let user of users | userFilter: searchText">
                 <div class="col-1">{{ user.id }}</div>
                 <div class="col-2">{{ user.name }}</div>
                 <div class="col-3">{{ user.lastName }}</div>
                 <div class="col-2">{{ user.username }}</div>
                 <div class="col-2">{{ user.role.code }}</div>
+                <div class="col-2">{{ user.active | active }}</div>
                 <div class="col-1"> <a href="javascript:void(0)" (click)="gotoDetail(user.id)">detail</a></div>
                 <div class="col-1"></div>
             </div>
@@ -29,6 +35,8 @@ import {Router} from '@angular/router';
     `,
 })
 export class UserListComponent implements OnInit {
+
+    searchText: string;
 
     users: any[];
     // userActions: UsersService;
@@ -42,6 +50,10 @@ export class UserListComponent implements OnInit {
     ) {
         // this.userActions = userServiceActions;
         this.users = [];
+    }
+
+    active(flag: number): string {
+        return flag === 1 ? 'Attivo' : 'Non attivo';
     }
 
     ngOnInit(): void {

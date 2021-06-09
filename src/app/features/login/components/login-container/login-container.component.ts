@@ -5,7 +5,7 @@ import {AuthStoreService} from '../../../../core/services/security/auth-store.se
 import {Router} from '@angular/router';
 import {Subject, Subscription} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
-import {NgForm} from "@angular/forms";
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'tcs-login-container',
@@ -51,6 +51,7 @@ export class LoginContainerComponent implements OnInit, OnDestroy {
 
   login(form: NgForm): void {
     // console.log(this.loginData);
+    console.log(form);
     this.secService.login(this.loginData);
   }
 

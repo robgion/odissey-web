@@ -8,6 +8,7 @@ import {AbstractControl, NG_VALIDATORS, ValidationErrors, Validator, ValidatorFn
 export class ForbiddenValidatorDirective implements Validator {
     @Input('tcsForbiddenName') forbiddenName = '';
 
+    /* Implementazione obbligatoria in quanto si tratta di un Validator*/
     validate(control: AbstractControl): ValidationErrors | null {
         return this.forbiddenName ? forbiddenNameValidator(new RegExp(this.forbiddenName, 'i'))(control)
             : null;

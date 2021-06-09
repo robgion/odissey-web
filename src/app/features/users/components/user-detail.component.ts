@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {UsersService} from '../../../core/services/users.service';
 import {map, switchMap, tap} from 'rxjs/operators';
@@ -23,8 +23,11 @@ import {HttpClient} from '@angular/common/http';
             <p> Nessun utente disponibile</p>
         </ng-template>
         <ng-template #userDetail>
+
             <div class="container mt-5">
+                
                 <form [formGroup]="userForm" (submit)="saveForm()">
+                    
                     <div class="row">
                         <div class="col-1">
                             <label for="name">Name</label>
@@ -69,6 +72,8 @@ export class UserDetailComponent implements OnInit {
     currentUser: User;
     userForm: FormGroup;
 
+    @Output() statusChanged: EventEmitter<any> = new EventEmitter<any>();
+
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
@@ -94,28 +99,39 @@ export class UserDetailComponent implements OnInit {
 
 
     ngOnInit(): void {
+        // 1. recupero dell'ID dell'utente
         this.route.params.pipe(
             tap(
                 (value) => console.log(value)
             ),
             switchMap(
+                // 2 Chiamata al service API ( recupero dell'utente )
                 (routeValues) => this.userService.getUser(+routeValues.id)
             )
         ).subscribe(
             response => {
                 console.log(response);
+                // 3. Inizialzizazione del modello dei dati dell'utente
                 this.currentUser = response;
+                // 4. Inizialzizazione del reactuve form
                 this.initForm();
             }
         );
     }
 
+    /**
+     * Metodo di creazione del form reactive
+     */
     initForm(): void {
+
+        const validators = [ Validators.required ];
+
         this.userForm = this.formBuilder.group({
-            nameRef: [this.currentUser ? this.currentUser.name : '', [Validators.required]],
+            nameRef: [this.currentUser ? this.currentUser.name : '', validators],
             emailRef: [this.currentUser ? this.currentUser.email : '',
                 Validators.compose(
-                    [this.forbiddenMatchingValidator, Validators.required, Validators.email]), this.userValidator()
+                    [this.forbiddenMatchingValidator, Validators.required, Validators.email]
+                ), this.userValidator()
             ]
         });
         this.userForm.valueChanges.subscribe(
@@ -127,6 +143,7 @@ export class UserDetailComponent implements OnInit {
             status => {
                 console.log(status);
                 console.log(this.userForm);
+                this.statusChanged.emit(status);
             }
         );
         this.loading = false;

@@ -14,7 +14,7 @@ export class AuthInterceptorService implements HttpInterceptor{
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return this.authStore.authStore$.pipe(
-            first(),
+            first(), // Operatore RxJs che permette di consumare dallo stream solo la prima emissione
             mergeMap(
                 data => {
                     // Bearer token jwt

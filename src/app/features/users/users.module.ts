@@ -4,12 +4,16 @@ import {UserListComponent} from './components/user-list.component';
 import {UsersRoutingModule} from './users-routing.module';
 import {UserDetailComponent} from './components/user-detail.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {UserSearchPipe} from './user-search.pipe';
+import { ActivePipe } from './active.pipe';
 
 
 @NgModule({
     declarations: [
         UserListComponent,
-        UserDetailComponent
+        UserDetailComponent,
+        UserSearchPipe,
+        ActivePipe
     ],
     exports: [
         UserListComponent

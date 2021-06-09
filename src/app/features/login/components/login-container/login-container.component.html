@@ -3,6 +3,7 @@
     <div class="container" style="margin-top: 50px;vertical-align: center">
 
         <h5>Login</h5>
+        <!-- #nome_var equivale ad una template reference variable  -->
         <form #loginForm="ngForm" (submit)="login(loginForm)">
             <div class="row">
                 <div class="col-4">
@@ -13,6 +14,9 @@
                            pattern="^[a-zA-Z]+$"
                            placeholder="Inserisci la username" [ngModel]="loginData.username">
                     <div *ngIf="refUsername.errors && (refUsername.dirty || refUsername.touched || loginForm.submitted)">
+
+                        <pre>{{ refUsername.errors | json }}</pre>
+
                         <small class="text-danger"
                                 *ngIf="loginForm.touched && refUsername.invalid && refUsername.control.errors.required">Username is required</small>
                         <small class="text-danger"
@@ -31,7 +35,7 @@
                            placeholder="Inserisci la password" [ngModel]="loginData.password">
 
                     <div *ngIf="refPassword.errors && (refPassword.dirty || refPassword.touched || loginForm.submitted)">
-                        <small class="text-danger"
+                        <small class="text-danger "
                                 *ngIf="refPassword.control.errors.required">Password is required</small>
                         <small class="text-danger"
                                *ngIf="loginForm.touched && refPassword.invalid
@@ -45,7 +49,7 @@
                 <div class="col-12 mt-2">
 
                     <input type="submit"
-                           class="btn-primary rounded rounded-sm" value="LOGIN"
+                           [ngClass]="{'btn-primary rounded rounded-sm': loginForm.valid, 'disabled rounded rounded-sm': loginForm.invalid|| loginForm.pending}" value="LOGIN"
                            [disabled]="loginForm.invalid || loginForm.pending"
                     >
                 </div>
